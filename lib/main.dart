@@ -22,8 +22,6 @@ class MyAppState extends State<MyApp> {
     setState(() {
       questionIndex++;
     });
-    print('this is a function inside a class');
-    print(questionIndex);
   }
 
   void goBack() {
@@ -31,7 +29,6 @@ class MyAppState extends State<MyApp> {
       setState(() {
         questionIndex--;
       });
-      print('navigated to the previous question');
     }
   }
 
@@ -67,7 +64,7 @@ class MyAppState extends State<MyApp> {
       'answers': [
         {'text': 'yes', 'score': 1000},
         {'text': 'yeah', 'score': 200},
-        {'text': 'no; doubt about it', 'score': 900},
+        {'text': 'no doubt about it', 'score': 900},
         {'text': 'one hundred percent', 'score': 1200},
       ]
     }
@@ -77,13 +74,10 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text('monkey see monkey do'),
+              title: Text('DUMB QUIZ'),
             ),
             body: questionIndex >= questions.length
-                ? Exhausted(
-                    'You\'ve exhausted the availabe number of questions',
-                    totalScore,
-                    reset)
-                : Quiz(questions, questionIndex, funcc, goBack)));
+                ? Exhausted(totalScore, reset)
+                : Quiz(questions, questionIndex, funcc)));
   }
 }

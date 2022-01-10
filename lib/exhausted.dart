@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 
 //ignore_for_file: prefer_const_constructors
 class Exhausted extends StatelessWidget {
-  final String message;
   final int totalScore;
   final VoidCallback reset;
-  Exhausted(this.message, this.totalScore, this.reset);
+  Exhausted(this.totalScore, this.reset);
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
           Text(
-            '$message\nThe total score achieved was: $totalScore',
+            'You\'ve exhausted the available number of questions\nThe total score achieved was: $totalScore',
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,

@@ -6,8 +6,7 @@ class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final int questionIndex;
   final Function funcc;
-  final VoidCallback goBack;
-  Quiz(this.questions, this.questionIndex, this.funcc, this.goBack);
+  Quiz(this.questions, this.questionIndex, this.funcc);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,14 +17,6 @@ class Quiz extends StatelessWidget {
         for (var i in (questions[questionIndex]['answers']
             as List<Map<String, Object>>))
           Answer(() => funcc(i['score']), i['text']),
-        Container(
-          margin: EdgeInsets.all(40),
-          alignment: Alignment.bottomLeft,
-          child: ElevatedButton(
-            onPressed: goBack,
-            child: Text('Prev'),
-          ),
-        )
       ],
     );
   }
